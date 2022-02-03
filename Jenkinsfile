@@ -22,7 +22,7 @@ node{
         }
         stage('Docker version'){
             echo "docker version"
-            sh "${dockerCMD} version"
+            sh "sudo ${dockerCMD} version"
         }
     }
     finally {
