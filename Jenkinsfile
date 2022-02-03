@@ -18,6 +18,8 @@ node{
             echo "Building the application..."
             sh "${mavenCMD} -version"
         }
-        
+    }
+    finally {
+        echo "completed build"
    }
    }
