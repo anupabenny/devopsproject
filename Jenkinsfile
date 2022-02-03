@@ -7,6 +7,8 @@ node{
             echo "Preparing the Jenkins environment with required tools..."
             mavenHome = tool name: 'maven', type: 'maven'
             mavenCMD = "${mavenHome}/bin/mvn"
+            docker = tool name: 'docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+            dockerCMD = "/usr/bin/docker"
         }
         
         stage('git checkout'){
@@ -17,6 +19,10 @@ node{
         stage('Build, Test and Package'){
             echo "Building the application..."
             sh "${mavenCMD} -version"
+        }
+        stage('Docker version'){
+            echo "docker version"
+            sh "${dockerCMD} version"
         }
     }
     finally {
