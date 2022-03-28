@@ -53,6 +53,11 @@ pipeline {
             }
 
         }
+        
+        stage('Sonar Scan'){
+            echo "Scanning application for vulnerabilities..."
+            sh "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=3e4dbb6c4204a880c8380ee242d191ca0e401e43"
+        }
 
         stage("Publish to Nexus Repository Manager") {
 
